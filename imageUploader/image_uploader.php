@@ -10,27 +10,27 @@ if (isset($_POST['submit'])) {
     $fileSize = $_FILES['file']['size'];
     $fileError = $_FILES['file']['error'];
     $dirname = $username;
-    $foldername = "/home/fogyniak/domains/fogyniakarokkozosseg.hu/public_html/uploads/" . $dirname.'/';     //a vizsg�land� mappa az uploads-on bel�l a felhaszn�l�n�vvel azonos mappa
+    $foldername = //URL of the folder    //a vizsgálandó mappa az uploads-on belül a felhasználónévvel azonos mappa
 
 
-    $fileExt = explode('.', $fileName);        //szétválasztjuk a fájlnevet a "." karakternél, 
-    $fileActualExt = strtolower(end($fileExt));   //kis betűkre állítjuk a nagy betűket
+    $fileExt = explode('.', $fileName);        //szÃ©tvÃ¡lasztjuk a fÃ¡jlnevet a "." karakternÃ©l, 
+    $fileActualExt = strtolower(end($fileExt));   //kis betÅ±kre Ã¡llÃ­tjuk a nagy betÅ±ket
 
-    $allowed = array('jpg', 'jpeg', 'png', 'pdf');     //engedélyezett fájlformátumok tömbje
-    if (in_array($fileActualExt, $allowed)) {    //ha a kiterjesztés benne van a megengedett tömbbe
-        if ($fileError === 0) { //és a feltöltésnél hibák száma = 0
-            if ($fileSize < 7000000000000) { //és ha a mérete kisebb mint 7MB
-                $fileNameNew = uniqid('', true) . "." . $fileActualExt;    //kap egy új egyedi nevet 
-                /* ide a php r�sz-------------------------------------------------- */
-                if (!file_exists($foldername)) {    //ha a mappa nem l�tezik
+    $allowed = array('jpg', 'jpeg', 'png', 'pdf');     //engedÃ©lyezett fÃ¡jlformÃ¡tumok tÃ¶mbje
+    if (in_array($fileActualExt, $allowed)) {    //ha a kiterjesztÃ©s benne van a megengedett tÃ¶mbbe
+        if ($fileError === 0) { //Ã©s a feltÃ¶ltÃ©snÃ©l hibÃ¡k szÃ¡ma = 0
+            if ($fileSize < 7000000000000) { //Ã©s ha a mÃ©rete kisebb mint 7MB
+                $fileNameNew = uniqid('', true) . "." . $fileActualExt;    //kap egy Ãºj egyedi nevet 
+                /* ide a php rész-------------------------------------------------- */
+                if (!file_exists($foldername)) {    //ha a mappa nem létezik
                     mkdir($foldername);
-                    $fileDestination = $foldername . '/' . $fileNameNew;  //a f�jl �tvonala: egy �j, a felhaszn�l�n�vvel aznos nev� mappa
+                    $fileDestination = $foldername . '/' . $fileNameNew;  //a fájl útvonala: egy új, a felhasználónévvel aznos nevû mappa
                 } else {
                     $fileDestination = $foldername . '/' . $fileNameNew;
                 }
-                /* id�ig------------------------------------------------------------ */
-                //  $fileDestination = 'uploads/' . $fileNameNew;    //mkdir("uploads/$username");ide mentjük
-                move_uploaded_file($fileTmpName, $fileDestination);  //áthelyezzük az átmeneti mappából az uploadsba
+                /* idáig------------------------------------------------------------ */
+                //  $fileDestination = 'uploads/' . $fileNameNew;    //mkdir("uploads/$username");ide mentjÃ¼k
+                move_uploaded_file($fileTmpName, $fileDestination);  //Ã¡thelyezzÃ¼k az Ã¡tmeneti mappÃ¡bÃ³l az uploadsba
                 echo "successful";
             } else {
                 echo "Your file is too big to upload";
