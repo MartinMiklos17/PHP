@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-$servername = "localhost";                 //"localhost";
-$usernameserver = "fogyniak";                  //"fogyniak";
-$passwordserver = "Imakemoney17$";                  //"Imakemoney17$";
-$dbname = "fogyniak_user";                   //"fogyniak_user";
+$servername = "localhost";                 //"";
+$usernameserver = "";                  //"";
+$passwordserver = "";                  //"";
+$dbname = "";                   //"";
 
 /* CONNECTION */
 $conn = new mysqli($servername, $usernameserver, $passwordserver, $dbname);
@@ -31,7 +31,7 @@ if (isset($_POST['kepfeltoltes'])) {
     $fileSize = $_FILES['file']['size'];
     $fileError = $_FILES['file']['error'];
     $dirname = $username;
-    $foldername = "/home/fogyniak/domains/fogyniakarokkozosseg.hu/public_html/uploads/" . $dirname . '/';     //a vizsgálandó mappa az uploads-on belül a felhasználónévvel azonos mappa
+    $foldername = //directory URL     //a vizsgálandó mappa az uploads-on belül a felhasználónévvel azonos mappa
 
 
     $fileExt = explode('.', $fileName);        //szĂ©tvĂˇlasztjuk a fĂˇjlnevet a "." karakternĂ©l, 
