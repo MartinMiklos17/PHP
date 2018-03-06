@@ -15,10 +15,10 @@
 <body>
 <!----------------------------Ide jön a php rész---------------->
 <?php 
-  $servername = "localhost";                 //"localhost";
-  $username =  "fogyniak";                  //"fogyniak";
-  $password =  "Imakemoney17$";                  //"Imakemoney17$";
-  $dbname =   "fogyniak_user";                   //"fogyniak_user";
+  $servername = "localhost";                 //"";
+  $username =  "";                  //"";
+  $password =  "";                  //"";
+  $dbname =   "";                   //"";
   
   /*CONNECTION*/
   $conn = new mysqli($servername, $username, $password, $dbname);
@@ -41,7 +41,7 @@
    $height = filter_input(INPUT_POST, "height", FILTER_SANITIZE_SPECIAL_CHARS);
  
   /*INSERTING to SQL Database--------------*/
-  $sql = "INSERT INTO fogyni_reg (name, username, password, password2, email, age, weight, height)
+  $sql = "INSERT INTO table (name, username, password, password2, email, age, weight, height)
   VALUES ('$name', '$username', '$password', '$password2', '$email', '$age', '$weight', '$height')"; 
   
   /*CHECK INSERTing success--------*/
